@@ -1,12 +1,13 @@
 // #region imports
 import {
+  async,
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
 
 import {
   expect
-} from '@blackbaud/skyux-builder/runtime/testing/browser';
+} from '@skyux-sdk/testing';
 
 import {
   SkyToastFixturesModule,
@@ -87,4 +88,11 @@ describe('Toast component', () => {
     expect(toastComponent.ariaLive).toEqual('assertive');
     expect(toastComponent.ariaRole).toEqual('alert');
   });
+
+  it('should pass accessibility', async(() => {
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(fixture.nativeElement).toBeAccessible();
+    });
+  }));
 });

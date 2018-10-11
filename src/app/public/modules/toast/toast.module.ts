@@ -5,6 +5,9 @@ import {
 import {
   CommonModule
 } from '@angular/common';
+import {
+  BrowserAnimationsModule
+} from '@angular/platform-browser/animations';
 
 import {
   SkyI18nModule
@@ -41,6 +44,7 @@ import {
   ],
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
     SkyI18nModule,
     SkyIconModule
   ],

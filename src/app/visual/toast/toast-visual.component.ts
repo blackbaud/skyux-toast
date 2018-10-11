@@ -7,7 +7,7 @@ import {
 import {
   SkyToastService,
   SkyToastType
-} from '@blackbaud/skyux/dist/core';
+} from '../../public/modules/toast';
 
 import {
   ToastDemoComponent

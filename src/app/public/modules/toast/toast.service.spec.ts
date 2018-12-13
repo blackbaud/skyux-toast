@@ -14,6 +14,10 @@ import {
 } from '@blackbaud/skyux-builder/runtime/testing/browser';
 
 import {
+  SkyDynamicComponentService
+} from '@skyux/core';
+
+import {
   SkyToastFixturesModule
 } from './fixtures';
 
@@ -32,7 +36,6 @@ import {
 import {
   SkyToastService
 } from './toast.service';
-import { SkyDynamicComponentService } from '@skyux/core';
 // #endregion
 
 describe('Toast service', () => {

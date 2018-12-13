@@ -21,7 +21,10 @@ import {
 import {
   SkyToastComponent
 } from './toast.component';
-import { SkyToastService } from './toast.service';
+
+import {
+  SkyToastService
+} from './toast.service';
 // #endregion
 
 describe('Toast component', () => {

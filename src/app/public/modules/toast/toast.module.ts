@@ -10,7 +10,8 @@ import {
   SkyI18nModule
 } from '@skyux/i18n';
 import {
-  SkyWindowRefService
+  SkyWindowRefService,
+  SkyDynamicComponentModule
 } from '@skyux/core';
 import {
   SkyIconModule
@@ -45,6 +46,7 @@ import {
   ],
   imports: [
     CommonModule,
+    SkyDynamicComponentModule,
     SkyI18nModule,
     SkyIconModule,
     SkyToastResourcesModule

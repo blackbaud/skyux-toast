@@ -21,6 +21,7 @@ import {
 import {
   SkyToastComponent
 } from './toast.component';
+import { SkyToastService } from './toast.service';
 // #endregion
 
 describe('Toast component', () => {
@@ -41,6 +42,8 @@ describe('Toast component', () => {
   });
 
   afterEach(() => {
+    TestBed.get(SkyToastService).ngOnDestroy();
+    fixture.detectChanges();
     fixture.destroy();
   });
 

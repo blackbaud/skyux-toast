@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 import {
-  TestBed
+  TestBed, inject
 } from '@angular/core/testing';
 
 import 'rxjs/add/operator/take';
@@ -32,10 +32,12 @@ import {
 import {
   SkyToastService
 } from './toast.service';
+import { SkyDynamicComponentService } from '@skyux/core';
 // #endregion
 
 describe('Toast service', () => {
   let toastService: SkyToastService;
+  let applicationRef: ApplicationRef;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -49,18 +51,29 @@ describe('Toast service', () => {
             appendToBody() { },
             removeHostElement() { }
           }
-        },
-        {
-          provide: ApplicationRef,
-          useValue: {
-            attachView() {},
-            detachView() {}
-          }
         }
       ]
     });
 
     toastService = TestBed.get(SkyToastService);
+  });
+
+  beforeEach(
+    inject(
+      [
+        ApplicationRef
+      ],
+      (
+        _applicationRef: ApplicationRef
+      ) => {
+        applicationRef = _applicationRef;
+      }
+    )
+  );
+
+  afterEach(() => {
+    toastService.ngOnDestroy();
+    applicationRef.tick();
   });
 
   it('should only create a single host component', () => {
@@ -77,7 +90,8 @@ describe('Toast service', () => {
 
   it('should only remove the host element if it exists', () => {
     toastService.openMessage('message');
-    const spy = spyOn(toastService['host'], 'destroy').and.callThrough();
+    const dynamicService = TestBed.get(SkyDynamicComponentService);
+    const spy = spyOn(dynamicService, 'removeComponent').and.callThrough();
     toastService['removeHostComponent']();
     toastService['removeHostComponent']();
     expect(spy.calls.count()).toEqual(1);

@@ -59,7 +59,7 @@ describe('Toast component', () => {
   ));
 
   afterEach(fakeAsync(() => {
-    toastService.closeAll();
+    toastService.ngOnDestroy();
     applicationRef.tick();
     tick();
     fixture.detectChanges();

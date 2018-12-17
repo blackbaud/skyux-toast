@@ -4,7 +4,8 @@ import {
 } from '@angular/core';
 
 import {
-  TestBed, inject
+  TestBed,
+  inject
 } from '@angular/core/testing';
 
 import 'rxjs/add/operator/take';

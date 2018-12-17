@@ -1,10 +1,12 @@
 // #region imports
 import {
-  RendererFactory2, ApplicationRef
+  RendererFactory2,
+  ApplicationRef
 } from '@angular/core';
 
 import {
-  TestBed, inject
+  TestBed,
+  inject
 } from '@angular/core/testing';
 
 import {

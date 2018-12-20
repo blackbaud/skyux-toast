@@ -31,6 +31,10 @@ import {
 } from './toast';
 
 import {
+  SkyToastAdapterService
+} from './toast-adapter.service';
+
+import {
   SkyToastService
 } from './toast.service';
 // #endregion
@@ -38,24 +42,24 @@ import {
 describe('Toast service', () => {
   let toastService: SkyToastService;
   let applicationRef: ApplicationRef;
-  let removeSpy: jasmine.Spy;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         SkyToastFixturesModule
+      ],
+      providers: [
+        {
+          provide: SkyToastAdapterService,
+          useValue: {
+            appendToBody() { },
+            removeHostElement() { }
+          }
+        }
       ]
     });
 
     toastService = TestBed.get(SkyToastService);
-    const dynamicService = TestBed.get(SkyDynamicComponentService);
-    removeSpy = spyOn(dynamicService, 'removeComponent').and.stub();
-    spyOn(dynamicService, 'createComponent')
-      .and.returnValue({
-        instance: {
-          closeAll: function() {}
-        }
-      });
   });
 
   beforeEach(
@@ -90,9 +94,11 @@ describe('Toast service', () => {
 
   it('should only remove the host element if it exists', () => {
     toastService.openMessage('message');
+    const dynamicService = TestBed.get(SkyDynamicComponentService);
+    const spy = spyOn(dynamicService, 'removeComponent').and.callThrough();
     toastService['removeHostComponent']();
     toastService['removeHostComponent']();
-    expect(removeSpy.calls.count()).toEqual(1);
+    expect(spy.calls.count()).toEqual(1);
   });
 
   it('should expose a method to remove the toast from the DOM', () => {

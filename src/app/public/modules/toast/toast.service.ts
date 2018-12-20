@@ -133,10 +133,6 @@ export class SkyToastService implements OnDestroy {
   private removeToast(toast: SkyToast): void {
     this.toasts = this.toasts.filter(t => t !== toast);
     this._toastStream.next(this.toasts);
-
-    if (this.toasts.length === 0) {
-      this.removeHostComponent();
-    }
   }
 
   private createHostComponent(): ComponentRef<SkyToasterComponent> {

@@ -163,8 +163,6 @@ describe('Toast component', () => {
     toastService.closeAll();
     fixture.detectChanges();
     tick();
-    fixture.detectChanges();
-    tick();
 
     toasts = getToastElements();
     expect(toasts.length).toEqual(0);

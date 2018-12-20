@@ -1,14 +1,7 @@
 // #region imports
 import {
-  ApplicationRef
-} from '@angular/core';
-
-import {
-  TestBed,
-  inject
+  TestBed
 } from '@angular/core/testing';
-
-import 'rxjs/add/operator/take';
 
 import {
   expect
@@ -18,9 +11,7 @@ import {
   SkyDynamicComponentService
 } from '@skyux/core';
 
-import {
-  SkyToastFixturesModule
-} from './fixtures';
+import 'rxjs/add/operator/take';
 
 import {
   SkyToastType
@@ -37,43 +28,28 @@ import {
 
 describe('Toast service', () => {
   let toastService: SkyToastService;
-  let applicationRef: ApplicationRef;
-  let removeSpy: jasmine.Spy;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        SkyToastFixturesModule
+      providers: [
+        SkyToastService,
+        {
+          provide: SkyDynamicComponentService,
+          useValue: {
+            createComponent() {
+              return {
+                instance: {
+                  closeAll() {}
+                }
+              };
+            },
+            removeComponent() {}
+          }
+        }
       ]
     });
 
     toastService = TestBed.get(SkyToastService);
-    const dynamicService = TestBed.get(SkyDynamicComponentService);
-    removeSpy = spyOn(dynamicService, 'removeComponent').and.stub();
-    spyOn(dynamicService, 'createComponent')
-      .and.returnValue({
-        instance: {
-          closeAll: function() {}
-        }
-      });
-  });
-
-  beforeEach(
-    inject(
-      [
-        ApplicationRef
-      ],
-      (
-        _applicationRef: ApplicationRef
-      ) => {
-        applicationRef = _applicationRef;
-      }
-    )
-  );
-
-  afterEach(() => {
-    toastService.ngOnDestroy();
-    applicationRef.tick();
   });
 
   it('should only create a single host component', () => {
@@ -90,9 +66,11 @@ describe('Toast service', () => {
 
   it('should only remove the host element if it exists', () => {
     toastService.openMessage('message');
+    const dynamicService = TestBed.get(SkyDynamicComponentService);
+    const spy = spyOn(dynamicService, 'removeComponent').and.callThrough();
     toastService['removeHostComponent']();
     toastService['removeHostComponent']();
-    expect(removeSpy.calls.count()).toEqual(1);
+    expect(spy.calls.count()).toEqual(1);
   });
 
   it('should expose a method to remove the toast from the DOM', () => {

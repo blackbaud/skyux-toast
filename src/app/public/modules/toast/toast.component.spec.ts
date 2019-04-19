@@ -2,12 +2,13 @@
 import {
   async,
   ComponentFixture,
-  TestBed,
-  fakeAsync
+  fakeAsync,
+  TestBed
 } from '@angular/core/testing';
 
 import {
-  expect, SkyAppTestUtility
+  expect,
+  SkyAppTestUtility
 } from '@skyux-sdk/testing';
 
 import {
@@ -16,16 +17,16 @@ import {
 } from './fixtures';
 
 import {
-  SkyToastType
-} from './types';
-
-import {
   SkyToastComponent
 } from './toast.component';
 
 import {
   SkyToastService
 } from './toast.service';
+
+import {
+  SkyToastType
+} from './types';
 // #endregion
 
 describe('Toast component', () => {

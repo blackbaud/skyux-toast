@@ -2,11 +2,12 @@
 import {
   async,
   ComponentFixture,
-  TestBed
+  TestBed,
+  fakeAsync
 } from '@angular/core/testing';
 
 import {
-  expect
+  expect, SkyAppTestUtility
 } from '@skyux-sdk/testing';
 
 import {
@@ -94,6 +95,17 @@ describe('Toast component', () => {
     expect(toastComponent.ariaLive).toEqual('assertive');
     expect(toastComponent.ariaRole).toEqual('alert');
   });
+
+  it('should prevent click events from bubbling beyond toast component', fakeAsync(() => {
+    let numClicks = 0;
+    document.body.addEventListener('click', function () {
+      numClicks++;
+    });
+
+    SkyAppTestUtility.fireDomEvent(document.querySelector('.sky-toast'), 'click');
+
+    expect(numClicks).toEqual(0);
+  }));
 
   it('should pass accessibility', async(() => {
     fixture.detectChanges();

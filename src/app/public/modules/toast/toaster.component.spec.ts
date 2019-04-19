@@ -16,8 +16,9 @@ import {
 } from '@angular/platform-browser/animations';
 
 import {
-  expect
-} from '@blackbaud/skyux-builder/runtime/testing/browser';
+  expect,
+  SkyAppTestUtility
+} from '@skyux-sdk/testing';
 
 import {
   SkyToastFixturesModule,
@@ -168,5 +169,18 @@ describe('Toast component', () => {
 
     toasts = getToastElements();
     expect(toasts.length).toEqual(0);
+  }));
+
+  it('should prevent click events from bubbling beyond toast components', fakeAsync(() => {
+    let numClicks = 0;
+    document.body.addEventListener('click', function () {
+      numClicks++;
+    });
+    openMessage();
+
+    SkyAppTestUtility.fireDomEvent(document.querySelector('.sky-toaster'), 'click');
+    SkyAppTestUtility.fireDomEvent(document.querySelector('.sky-toast'), 'click');
+
+    expect(numClicks).toEqual(0);
   }));
 });

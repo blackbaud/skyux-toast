@@ -8,7 +8,6 @@ import {
   ChangeDetectorRef,
   Component,
   EventEmitter,
-  HostListener,
   Input,
   OnInit,
   Output
@@ -97,12 +96,6 @@ export class SkyToastComponent implements OnInit {
 
   public ngOnInit(): void {
     this.isOpen = true;
-  }
-
-  @HostListener('click', ['$event'])
-  public onHostClick(event: any): void {
-    event.preventDefault();
-    event.stopPropagation();
   }
 
   public onAnimationDone(event: AnimationEvent): void {

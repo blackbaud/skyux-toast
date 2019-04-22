@@ -169,33 +169,23 @@ describe('Toast component', () => {
     expect(toasts.length).toEqual(0);
   }));
 
-  it('should detect click events inside toast components', fakeAsync(() => {
-    openMessage();
-    const toaster = document.querySelector('.sky-toaster');
-    const toast = document.querySelector('.sky-toast');
-    let numClicks = 0;
-    toaster.addEventListener('click', function () {
-      numClicks++;
-    });
-
-    SkyAppTestUtility.fireDomEvent(toaster, 'click');
-    SkyAppTestUtility.fireDomEvent(toast, 'click');
-
-    expect(numClicks).toEqual(2);
-  }));
-
   it('should prevent click events from bubbling beyond toast components', fakeAsync(() => {
     openMessage();
     const toaster = document.querySelector('.sky-toaster');
     const toast = document.querySelector('.sky-toast');
-    let numClicks = 0;
-    document.body.addEventListener('click', function () {
-      numClicks++;
+    let numDocumentClicks = 0;
+    document.addEventListener('click', function () {
+      numDocumentClicks++;
+    });
+    let numToasterClicks = 0;
+    toaster.addEventListener('click', function () {
+      numToasterClicks++;
     });
 
     SkyAppTestUtility.fireDomEvent(toaster, 'click');
     SkyAppTestUtility.fireDomEvent(toast, 'click');
 
-    expect(numClicks).toEqual(0);
+    expect(numDocumentClicks).toEqual(0);
+    expect(numToasterClicks).toEqual(2);
   }));
 });

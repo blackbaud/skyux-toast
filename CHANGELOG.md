@@ -1,6 +1,6 @@
 # 3.0.2 (2019-04-22)
 
-- Updated toast component to prevent clicks from propigating outside the component. [#16](https://github.com/blackbaud/skyux-toast/pull/16)
+- Updated toast component to prevent clicks from propagating outside the component. [#16](https://github.com/blackbaud/skyux-toast/pull/16)
 
 # 3.0.1 (2019-02-22)
 

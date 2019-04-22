@@ -1,4 +1,3 @@
-// #region imports
 import {
   async,
   ComponentFixture,
@@ -25,7 +24,6 @@ import {
 import {
   SkyToastType
 } from './types';
-// #endregion
 
 describe('Toast component', () => {
   let fixture: ComponentFixture<SkyToastTestComponent>;

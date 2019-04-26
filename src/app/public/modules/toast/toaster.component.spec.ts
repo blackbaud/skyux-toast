@@ -176,7 +176,7 @@ describe('Toast component', () => {
 
     const toaster = document.querySelector('.sky-toaster');
     const toast = document.querySelector('.sky-toast');
-    const checkbox: any = toast.querySelector('input[type="checkbox"');
+    const checkbox: any = toast.querySelector('.test-checkbox');
 
     expect(checkbox.checked).toEqual(false);
 
@@ -197,6 +197,9 @@ describe('Toast component', () => {
 
     expect(numDocumentClicks).toEqual(0);
     expect(numToasterClicks).toEqual(3);
+
+    // Make sure that standard click events are still getting
+    // handled within the toast component.
     expect(checkbox.checked).toEqual(true);
   }));
 });

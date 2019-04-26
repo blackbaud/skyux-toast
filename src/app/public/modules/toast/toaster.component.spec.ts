@@ -176,7 +176,7 @@ describe('Toast component', () => {
 
     const toaster = document.querySelector('.sky-toaster');
     const toast = document.querySelector('.sky-toast');
-    const checkbox: any = toast.querySelector('.test-checkbox');
+    const checkbox: any = toast.querySelector('.sky-toast-checkbox-test');
 
     expect(checkbox.checked).toEqual(false);
 

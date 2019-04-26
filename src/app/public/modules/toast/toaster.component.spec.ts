@@ -170,13 +170,21 @@ describe('Toast component', () => {
   }));
 
   it('should prevent click events from bubbling beyond toast components', fakeAsync(() => {
-    openMessage();
+    const message = 'Hello, component!';
+
+    openComponent(message);
+
     const toaster = document.querySelector('.sky-toaster');
     const toast = document.querySelector('.sky-toast');
+    const checkbox: any = toast.querySelector('input[type="checkbox"');
+
+    expect(checkbox.checked).toEqual(false);
+
     let numDocumentClicks = 0;
     document.addEventListener('click', function () {
       numDocumentClicks++;
     });
+
     let numToasterClicks = 0;
     toaster.addEventListener('click', function () {
       numToasterClicks++;
@@ -185,7 +193,10 @@ describe('Toast component', () => {
     SkyAppTestUtility.fireDomEvent(toaster, 'click');
     SkyAppTestUtility.fireDomEvent(toast, 'click');
 
+    checkbox.click();
+
     expect(numDocumentClicks).toEqual(0);
-    expect(numToasterClicks).toEqual(2);
+    expect(numToasterClicks).toEqual(3);
+    expect(checkbox.checked).toEqual(true);
   }));
 });

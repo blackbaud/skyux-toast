@@ -1,6 +1,6 @@
 {
   "name": "@skyux/toast",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "SKY UX Toast",
   "main": "bundles/bundle.umd.js",
   "module": "index.ts",
@@ -35,7 +35,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@blackbaud/skyux": "2.48.0",
+    "@blackbaud/skyux": "2.48.2",
     "@blackbaud/skyux-builder": "1.33.1",
     "@skyux-sdk/builder-plugin-skyux": "1.0.0"
   }

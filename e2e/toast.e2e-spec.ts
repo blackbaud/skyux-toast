@@ -9,7 +9,7 @@ import {
 } from 'protractor';
 
 describe('Toast', () => {
-  
+
   beforeEach(() => {
     SkyHostBrowser.get('visual/toast');
   });

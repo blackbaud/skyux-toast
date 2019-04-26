@@ -9,6 +9,7 @@ import {
 } from 'protractor';
 
 describe('Toast', () => {
+  
   beforeEach(() => {
     SkyHostBrowser.get('visual/toast');
   });
@@ -44,4 +45,5 @@ describe('Toast', () => {
       screenshotName: 'toast-xs-component'
     });
   });
+
 });

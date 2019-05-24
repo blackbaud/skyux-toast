@@ -33,7 +33,10 @@ import {
 import {
   SkyToastService
 } from './toast.service';
-import { SkyToasterComponent } from './toaster.component';
+
+import {
+  SkyToasterComponent
+} from './toaster.component';
 
 describe('Toast component', () => {
   let fixture: ComponentFixture<SkyToasterTestComponent>;

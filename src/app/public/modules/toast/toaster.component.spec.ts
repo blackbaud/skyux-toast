@@ -33,6 +33,7 @@ import {
 import {
   SkyToastService
 } from './toast.service';
+import { SkyToasterComponent } from './toaster.component';
 
 describe('Toast component', () => {
   let fixture: ComponentFixture<SkyToasterTestComponent>;
@@ -152,6 +153,7 @@ describe('Toast component', () => {
   }));
 
   it('should close all toasts', fakeAsync(() => {
+    const cloaseAllSpy = spyOn(SkyToasterComponent.prototype, 'closeAll').and.callThrough();
     openMessage();
     openMessage();
     openMessage();
@@ -167,6 +169,23 @@ describe('Toast component', () => {
 
     toasts = getToastElements();
     expect(toasts.length).toEqual(0);
+    expect(cloaseAllSpy).toHaveBeenCalled();
+  }));
+
+  it('should close all toasts', fakeAsync(() => {
+    const cloaseAllSpy = spyOn(SkyToasterComponent.prototype, 'closeAll').and.callThrough();
+    let toasts = getToastElements();
+    expect(toasts.length).toEqual(0);
+
+    toastService.closeAll();
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    tick();
+
+    toasts = getToastElements();
+    expect(toasts.length).toEqual(0);
+    expect(cloaseAllSpy).not.toHaveBeenCalled();
   }));
 
   it('should prevent click events from bubbling beyond toast components', fakeAsync(() => {

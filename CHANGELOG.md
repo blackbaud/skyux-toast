@@ -1,3 +1,7 @@
+# 3.0.4 (2019-05-28)
+
+- Fixed the toast service to not error when attempting to close all toasts while no toasts are open. [#21](https://github.com/blackbaud/skyux-toast/pull/21) (Thanks @Blackbaud-ChristiSchneider)
+
 # 3.0.3 (2019-04-26)
 
 - Fixed toast component to handle click events that originate within its contents. [#18](https://github.com/blackbaud/skyux-toast/pull/18)

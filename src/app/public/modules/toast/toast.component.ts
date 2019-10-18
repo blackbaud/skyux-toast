@@ -9,6 +9,7 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnDestroy,
   OnInit,
   Output
 } from '@angular/core';
@@ -22,6 +23,8 @@ import {
 } from './types';
 // #endregion
 
+const AUTO_CLOSE_MILLISECONDS = 8000;
+
 @Component({
   selector: 'sky-toast',
   templateUrl: './toast.component.html',
@@ -31,7 +34,7 @@ import {
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SkyToastComponent implements OnInit {
+export class SkyToastComponent implements OnInit, OnDestroy {
   @Input()
   public set toastType(value: SkyToastType) {
     this._toastType = value;
@@ -40,6 +43,9 @@ export class SkyToastComponent implements OnInit {
   public get toastType(): SkyToastType {
     return (this._toastType === undefined) ? SkyToastType.Info : this._toastType;
   }
+
+  @Input()
+  public autoClose: boolean;
 
   @Output()
   public closed = new EventEmitter<void>();
@@ -88,6 +94,12 @@ export class SkyToastComponent implements OnInit {
 
   private isOpen = false;
 
+  private autoCloseTimeoutId: any;
+
+  private hasFocus: boolean;
+
+  private hasMouseOver: boolean;
+
   private _toastType: SkyToastType;
 
   constructor(
@@ -96,6 +108,12 @@ export class SkyToastComponent implements OnInit {
 
   public ngOnInit(): void {
     this.isOpen = true;
+
+    this.startAutoCloseTimer();
+  }
+
+  public ngOnDestroy(): void {
+    this.stopAutoCloseTimer();
   }
 
   public onAnimationDone(event: AnimationEvent): void {
@@ -106,7 +124,45 @@ export class SkyToastComponent implements OnInit {
   }
 
   public close(): void {
+    this.stopAutoCloseTimer();
+
     this.isOpen = false;
     this.changeDetector.markForCheck();
+  }
+
+  public startAutoCloseTimer() {
+    if (this.autoClose && !this.hasFocus && !this.hasMouseOver) {
+      this.stopAutoCloseTimer();
+
+      this.autoCloseTimeoutId = setTimeout(() => {
+        this.close();
+      }, AUTO_CLOSE_MILLISECONDS);
+    }
+  }
+
+  public stopAutoCloseTimer() {
+    if (this.autoCloseTimeoutId) {
+      clearTimeout(this.autoCloseTimeoutId);
+    }
+  }
+
+  public focusin() {
+    this.stopAutoCloseTimer();
+    this.hasFocus = true;
+  }
+
+  public focusout() {
+    this.hasFocus = false;
+    this.startAutoCloseTimer();
+  }
+
+  public mouseenter() {
+    this.hasMouseOver = true;
+    this.stopAutoCloseTimer();
+  }
+
+  public mouseleave() {
+    this.hasMouseOver = false;
+    this.startAutoCloseTimer();
   }
 }

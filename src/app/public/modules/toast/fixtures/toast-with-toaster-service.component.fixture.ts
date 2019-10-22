@@ -5,10 +5,6 @@ import {
 } from '@angular/core';
 
 import {
-  SkyToastType
-} from '../types/toast-type';
-
-import {
   SkyToastComponent
 } from '../toast.component';
 
@@ -25,12 +21,8 @@ import {
 export class SkyToastWithToasterServiceTestComponent {
   public autoClose: boolean;
 
-  public toastType: SkyToastType;
-
   @ViewChild(SkyToastComponent)
   public toastComponent: SkyToastComponent;
 
   constructor(public toasterService: SkyToasterService) { }
-
-  public onClosed(): void { }
 }

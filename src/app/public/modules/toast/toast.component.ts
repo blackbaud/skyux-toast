@@ -11,8 +11,13 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  Optional,
   Output
 } from '@angular/core';
+
+import {
+  Subject
+} from 'rxjs/Subject';
 
 import {
   skyAnimationEmerge
@@ -21,9 +26,13 @@ import {
 import {
   SkyToastType
 } from './types';
+
+import {
+  SkyToasterService
+} from './toaster.service';
 // #endregion
 
-const AUTO_CLOSE_MILLISECONDS = 8000;
+const AUTO_CLOSE_MILLISECONDS = 6000;
 
 @Component({
   selector: 'sky-toast',
@@ -96,23 +105,43 @@ export class SkyToastComponent implements OnInit, OnDestroy {
 
   private autoCloseTimeoutId: any;
 
-  private hasFocus: boolean;
-
-  private hasMouseOver: boolean;
+  private ngUnsubscribe = new Subject<void>();
 
   private _toastType: SkyToastType;
 
   constructor(
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    @Optional() private toasterService?: SkyToasterService
   ) { }
 
   public ngOnInit(): void {
     this.isOpen = true;
 
     this.startAutoCloseTimer();
+
+    const actionHandler = (value: boolean) => {
+      if (value) {
+        this.stopAutoCloseTimer();
+      } else {
+        this.startAutoCloseTimer();
+      }
+    };
+
+    if (this.toasterService) {
+      this.toasterService.focusIn
+      .takeUntil(this.ngUnsubscribe)
+      .subscribe(actionHandler);
+
+      this.toasterService.mouseOver
+        .takeUntil(this.ngUnsubscribe)
+        .subscribe(actionHandler);
+    }
   }
 
   public ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+
     this.stopAutoCloseTimer();
   }
 
@@ -131,7 +160,14 @@ export class SkyToastComponent implements OnInit, OnDestroy {
   }
 
   public startAutoCloseTimer() {
-    if (this.autoClose && !this.hasFocus && !this.hasMouseOver) {
+    if (this.autoClose &&
+      (
+        !this.toasterService || (
+          !this.toasterService.focusIn.getValue() &&
+          !this.toasterService.mouseOver.getValue()
+        )
+      )
+    ) {
       this.stopAutoCloseTimer();
 
       this.autoCloseTimeoutId = setTimeout(() => {
@@ -144,25 +180,5 @@ export class SkyToastComponent implements OnInit, OnDestroy {
     if (this.autoCloseTimeoutId) {
       clearTimeout(this.autoCloseTimeoutId);
     }
-  }
-
-  public focusin() {
-    this.stopAutoCloseTimer();
-    this.hasFocus = true;
-  }
-
-  public focusout() {
-    this.hasFocus = false;
-    this.startAutoCloseTimer();
-  }
-
-  public mouseenter() {
-    this.hasMouseOver = true;
-    this.stopAutoCloseTimer();
-  }
-
-  public mouseleave() {
-    this.hasMouseOver = false;
-    this.startAutoCloseTimer();
   }
 }

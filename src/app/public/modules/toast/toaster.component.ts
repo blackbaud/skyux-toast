@@ -93,6 +93,8 @@ export class SkyToasterComponent implements AfterViewInit {
   }
 
   public closeAll(): void {
+    /* istanbul ignore else */
+    // Sanity check
     if (this.toastComponents) {
       this.toastComponents.forEach((toastComponent) => {
         toastComponent.close();

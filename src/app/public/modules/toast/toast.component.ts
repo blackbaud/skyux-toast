@@ -162,7 +162,8 @@ export class SkyToastComponent implements OnInit, OnDestroy {
   public startAutoCloseTimer() {
     if (this.autoClose &&
       (
-        !this.toasterService || (
+        !this.toasterService ||
+        (
           !this.toasterService.focusIn.getValue() &&
           !this.toasterService.mouseOver.getValue()
         )

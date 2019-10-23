@@ -16,8 +16,14 @@ import {
 } from '@angular/core';
 
 import {
+  Observable
+} from 'rxjs/Observable';
+
+import {
   Subject
 } from 'rxjs/Subject';
+
+import 'rxjs/add/observable/combineLatest';
 
 import {
   skyAnimationEmerge
@@ -30,6 +36,7 @@ import {
 import {
   SkyToasterService
 } from './toaster.service';
+
 // #endregion
 
 const AUTO_CLOSE_MILLISECONDS = 6000;
@@ -120,21 +127,18 @@ export class SkyToastComponent implements OnInit, OnDestroy {
     this.startAutoCloseTimer();
 
     if (this.toasterService) {
-      const actionHandler = (value: boolean) => {
-        if (value) {
-          this.stopAutoCloseTimer();
-        } else {
-          this.startAutoCloseTimer();
-        }
-      };
-
-      this.toasterService.focusIn
+      Observable.combineLatest(
+        this.toasterService.focusIn,
+        this.toasterService.mouseOver
+      )
         .takeUntil(this.ngUnsubscribe)
-        .subscribe(actionHandler);
-
-      this.toasterService.mouseOver
-        .takeUntil(this.ngUnsubscribe)
-        .subscribe(actionHandler);
+        .subscribe(([hasFocus, hasMouseOver]) => {
+          if (hasFocus || hasMouseOver) {
+            this.stopAutoCloseTimer();
+          } else {
+            this.startAutoCloseTimer();
+          }
+        });
     }
   }
 

@@ -9,8 +9,8 @@ import {
 @Injectable()
 export class SkyToasterService {
 
-  public mouseOver = new BehaviorSubject<boolean>(false);
-
   public focusIn = new BehaviorSubject<boolean>(false);
+
+  public mouseOver = new BehaviorSubject<boolean>(false);
 
 }

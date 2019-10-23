@@ -18,12 +18,12 @@ import {
   templateUrl: './toast.component.fixture.html'
 })
 export class SkyToastTestComponent {
-  public toastType: SkyToastType;
-
   public autoClose: boolean;
 
   @ViewChild(SkyToastComponent)
   public toastComponent: SkyToastComponent;
+
+  public toastType: SkyToastType;
 
   public onClosed(): void { }
 }

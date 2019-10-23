@@ -45,6 +45,9 @@ const AUTO_CLOSE_MILLISECONDS = 6000;
 })
 export class SkyToastComponent implements OnInit, OnDestroy {
   @Input()
+  public autoClose: boolean;
+
+  @Input()
   public set toastType(value: SkyToastType) {
     this._toastType = value;
   }
@@ -52,9 +55,6 @@ export class SkyToastComponent implements OnInit, OnDestroy {
   public get toastType(): SkyToastType {
     return (this._toastType === undefined) ? SkyToastType.Info : this._toastType;
   }
-
-  @Input()
-  public autoClose: boolean;
 
   @Output()
   public closed = new EventEmitter<void>();
@@ -101,9 +101,9 @@ export class SkyToastComponent implements OnInit, OnDestroy {
     return classNames.join(' ');
   }
 
-  private isOpen = false;
-
   private autoCloseTimeoutId: any;
+
+  private isOpen = false;
 
   private ngUnsubscribe = new Subject<void>();
 
@@ -119,18 +119,18 @@ export class SkyToastComponent implements OnInit, OnDestroy {
 
     this.startAutoCloseTimer();
 
-    const actionHandler = (value: boolean) => {
-      if (value) {
-        this.stopAutoCloseTimer();
-      } else {
-        this.startAutoCloseTimer();
-      }
-    };
-
     if (this.toasterService) {
+      const actionHandler = (value: boolean) => {
+        if (value) {
+          this.stopAutoCloseTimer();
+        } else {
+          this.startAutoCloseTimer();
+        }
+      };
+
       this.toasterService.focusIn
-      .takeUntil(this.ngUnsubscribe)
-      .subscribe(actionHandler);
+        .takeUntil(this.ngUnsubscribe)
+        .subscribe(actionHandler);
 
       this.toasterService.mouseOver
         .takeUntil(this.ngUnsubscribe)
@@ -159,7 +159,7 @@ export class SkyToastComponent implements OnInit, OnDestroy {
     this.changeDetector.markForCheck();
   }
 
-  public startAutoCloseTimer() {
+  public startAutoCloseTimer(): void {
     if (this.autoClose &&
       (
         !this.toasterService ||
@@ -177,7 +177,7 @@ export class SkyToastComponent implements OnInit, OnDestroy {
     }
   }
 
-  public stopAutoCloseTimer() {
+  public stopAutoCloseTimer(): void {
     if (this.autoCloseTimeoutId) {
       clearTimeout(this.autoCloseTimeoutId);
     }

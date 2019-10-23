@@ -102,19 +102,19 @@ export class SkyToasterComponent implements AfterViewInit {
     }
   }
 
-  public onMouseEnter() {
+  public onMouseEnter(): void {
     this.toasterService.mouseOver.next(true);
   }
 
-  public onMouseLeave() {
+  public onMouseLeave(): void {
     this.toasterService.mouseOver.next(false);
   }
 
-  public onFocusIn() {
+  public onFocusIn(): void {
     this.toasterService.focusIn.next(true);
   }
 
-  public onFocusOut() {
+  public onFocusOut(): void {
     this.toasterService.focusIn.next(false);
   }
 

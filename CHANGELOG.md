@@ -1,8 +1,8 @@
 # 3.2.0 (2019-11-08)
 
-- Added display direction configuration option to the toast container. [#31](https://github.com/blackbaud/skyux-toast/pull/31)
+- Added a display direction configuration option to the toast container. [#31](https://github.com/blackbaud/skyux-toast/pull/31)
 
-- Fixed bug where too many custom components were created when new toasts were displayed, leading to content being injected into the incorrect toasts. [#31](https://github.com/blackbaud/skyux-toast/pull/31)
+- Fixed a bug where too many custom components were created when new toasts were displayed, leading to content being injected into the incorrect toasts. [#31](https://github.com/blackbaud/skyux-toast/pull/31)
 
 - Added support for `@skyux-sdk/builder` for development. [#32](https://github.com/blackbaud/skyux-toast/pull/32)
 

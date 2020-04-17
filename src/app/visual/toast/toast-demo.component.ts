@@ -5,7 +5,7 @@ import {
 
 import {
   SkyToastInstance
-} from '../../public/modules/toast/toast-instance';
+} from '../../public';
 
 @Component({
   selector: 'sky-test-cmp-toast',

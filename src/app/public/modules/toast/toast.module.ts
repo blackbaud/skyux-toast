@@ -12,7 +12,7 @@ import {
 } from '@angular/platform-browser/animations';
 
 import {
-  SkyWindowRefService,
+  SkyAppWindowRef,
   SkyDynamicComponentModule
 } from '@skyux/core';
 
@@ -67,9 +67,9 @@ import {
     SkyToastComponent
   ],
   providers: [
+    SkyAppWindowRef,
     SkyToastService,
-    SkyToastAdapterService,
-    SkyWindowRefService
+    SkyToastAdapterService
   ],
   entryComponents: [
     SkyToastBodyComponent,

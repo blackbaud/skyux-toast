@@ -16,14 +16,14 @@ import {
 } from '@angular/core';
 
 import {
-  Observable
-} from 'rxjs/Observable';
+  Observable,
+  Subject
+} from 'rxjs';
 
 import {
-  Subject
-} from 'rxjs/Subject';
-
-import 'rxjs/add/operator/take';
+  take,
+  takeUntil
+} from 'rxjs/operators';
 
 import {
   SkyToast
@@ -95,7 +95,7 @@ export class SkyToasterComponent implements AfterViewInit, OnDestroy {
     });
 
     this.toastStream
-      .takeUntil(this.ngUnsubscribe)
+      .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((toasts: SkyToast[]) => {
         this.toastsForDisplay = this.sortToastsForDisplay(toasts);
 
@@ -148,7 +148,7 @@ export class SkyToasterComponent implements AfterViewInit, OnDestroy {
 
   private injectToastContent(): void {
     // Dynamically inject each toast's body content when the number of toasts changes.
-    this.toastService.toastStream.take(1).subscribe((toasts) => {
+    this.toastService.toastStream.pipe(take(1)).subscribe((toasts) => {
       this.toastContent.toArray().forEach((target: ViewContainerRef, i: number) => {
         const toastId = this.domAdapter.getToastId(target);
 

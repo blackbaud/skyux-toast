@@ -7,12 +7,9 @@ import {
 } from '@angular/core';
 
 import {
-  BehaviorSubject
-} from 'rxjs/BehaviorSubject';
-
-import {
+  BehaviorSubject,
   Observable
-} from 'rxjs/Observable';
+} from 'rxjs';
 
 import {
   SkyDynamicComponentService

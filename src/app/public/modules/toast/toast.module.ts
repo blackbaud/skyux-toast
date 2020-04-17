@@ -26,7 +26,7 @@ import {
 
 import {
   SkyToastResourcesModule
-} from '../shared';
+} from '../shared/toast-resources.module';
 
 import {
   SkyToastAdapterService

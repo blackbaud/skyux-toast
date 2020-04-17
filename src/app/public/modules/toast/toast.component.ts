@@ -30,7 +30,7 @@ import {
 
 import {
   SkyToastType
-} from './types';
+} from './types/toast-type';
 
 import {
   SkyToasterService

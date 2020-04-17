@@ -11,10 +11,16 @@ import {
 } from '@skyux-sdk/testing';
 
 import {
-  SkyToastFixturesModule,
-  SkyToastTestComponent,
+  SkyToastFixturesModule
+} from './fixtures/toast-fixtures.module';
+
+import {
+  SkyToastTestComponent
+} from './fixtures/toast.component.fixture';
+
+import {
   SkyToastWithToasterServiceTestComponent
-} from './fixtures';
+} from './fixtures/toast-with-toaster-service.component.fixture';
 
 import {
   SkyToastComponent
@@ -30,7 +36,7 @@ import {
 
 import {
   SkyToastType
-} from './types';
+} from './types/toast-type';
 
 describe('Toast component', () => {
   let fixture: ComponentFixture<SkyToastTestComponent>;

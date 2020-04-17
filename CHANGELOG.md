@@ -1,3 +1,13 @@
+# 4.0.0-rc.0 (2020-04-17)
+
+### New features
+
+- Updated the pipeline to transpile to the [Angular Package Format](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview). [#38](https://github.com/blackbaud/skyux-toast/pull/38)
+
+### Breaking changes
+
+- Dropped support for `rxjs@5`. Consumers may install `rxjs-compat@^6` to support older versions of `rxjs`. [#38](https://github.com/blackbaud/skyux-toast/pull/38)
+
 # 3.2.1 (2020-04-03)
 
 - Fixed the toast component to allow clicks to propagate to the document. [#36](https://github.com/blackbaud/skyux-toast/pull/36)

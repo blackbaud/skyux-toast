@@ -56,8 +56,6 @@ describe('Toast component', () => {
     );
 
     fixture = TestBed.createComponent(SkyToastTestComponent);
-    component = fixture.componentInstance;
-    toastComponent = component.toastComponent;
   });
 
   afterEach(() => {
@@ -80,11 +78,19 @@ describe('Toast component', () => {
     expect(className).toEqual(toastComponent.classNames);
   }
 
+  function setupTest(): void {
+    fixture.detectChanges();
+    component = fixture.componentInstance;
+    toastComponent = component.toastComponent;
+  }
+
   it('should set defaults', () => {
+    setupTest();
     expect(toastComponent.toastType).toEqual(SkyToastType.Info);
   });
 
   it('should allow setting the toast type', () => {
+    setupTest();
     verifyType(); // default
     verifyType(SkyToastType.Info);
     verifyType(SkyToastType.Success);
@@ -93,6 +99,7 @@ describe('Toast component', () => {
   });
 
   it('should close the toast when clicking close button', () => {
+    setupTest();
     fixture.detectChanges();
     expect(toastComponent['isOpen']).toEqual(true);
     expect(toastComponent.animationState).toEqual('open');
@@ -103,6 +110,7 @@ describe('Toast component', () => {
   });
 
   it('should set aria attributes', () => {
+    setupTest();
     expect(toastComponent.ariaLive).toEqual('polite');
     expect(toastComponent.ariaRole).toEqual(undefined);
     fixture.componentInstance.toastType = SkyToastType.Danger;
@@ -112,6 +120,7 @@ describe('Toast component', () => {
   });
 
   it('should pass accessibility', async(() => {
+    setupTest();
     fixture.detectChanges();
     fixture.whenStable().then(() => {
       expect(fixture.nativeElement).toBeAccessible();
@@ -126,7 +135,7 @@ describe('Toast component', () => {
     it('should auto-close the toast if set to true', fakeAsync(() => {
       fixture.componentInstance.autoClose = true;
 
-      fixture.detectChanges();
+      setupTest();
 
       expect(toastComponent['isOpen']).toBe(true);
 
@@ -146,6 +155,7 @@ describe('Toast component', () => {
 
       beforeEach(() => {
         withServiceFixture = TestBed.createComponent(SkyToastWithToasterServiceTestComponent);
+        fixture.detectChanges();
         withServiceComponent = withServiceFixture.componentInstance;
         withServiceToastComponent = withServiceComponent.toastComponent;
       });

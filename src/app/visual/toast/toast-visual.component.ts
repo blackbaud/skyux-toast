@@ -7,7 +7,7 @@ import {
 import {
   SkyToastService,
   SkyToastType
-} from '../../public';
+} from '../../public/public_api';
 
 import {
   ToastDemoComponent

@@ -1,3 +1,9 @@
+# 4.0.0-rc.1 (2020-05-05)
+
+### New features
+
+- Added a test fixture for the toast component to be used in consumer unit tests. [#42](https://github.com/blackbaud/skyux-toast/pull/42)
+
 # 4.0.0-rc.0 (2020-04-17)
 
 ### New features

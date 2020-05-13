@@ -1,3 +1,14 @@
+# 4.0.0 (2020-05-13)
+
+### New features
+
+- Added a test fixture for the toast component to be used in consumer unit tests. [#42](https://github.com/blackbaud/skyux-toast/pull/42)
+- Updated the pipeline to transpile to the [Angular Package Format](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview). [#38](https://github.com/blackbaud/skyux-toast/pull/38)
+
+### Breaking changes
+
+- Dropped support for `rxjs@5`. Consumers can install `rxjs-compat@^6` to support older versions of `rxjs`. [#38](https://github.com/blackbaud/skyux-toast/pull/38)
+
 # 4.0.0-rc.1 (2020-05-05)
 
 ### New features

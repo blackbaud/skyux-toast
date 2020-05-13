@@ -12,7 +12,7 @@
 
 ### Breaking changes
 
-- Dropped support for `rxjs@5`. Consumers may install `rxjs-compat@^6` to support older versions of `rxjs`. [#38](https://github.com/blackbaud/skyux-toast/pull/38)
+- Dropped support for `rxjs@5`. Consumers can install `rxjs-compat@^6` to support older versions of `rxjs`. [#38](https://github.com/blackbaud/skyux-toast/pull/38)
 
 # 3.2.1 (2020-04-03)
 

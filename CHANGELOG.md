@@ -2,7 +2,7 @@
 
 ### New features
 
-- Added a test fixture for the toast component to be used in consumer unit tests. [#42](https://github.com/blackbaud/skyux-toast/pull/42)
+- Added a test fixture for the toast component to use in consumer unit tests. [#42](https://github.com/blackbaud/skyux-toast/pull/42)
 - Updated the pipeline to transpile to the [Angular Package Format](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview). [#38](https://github.com/blackbaud/skyux-toast/pull/38)
 
 ### Breaking changes

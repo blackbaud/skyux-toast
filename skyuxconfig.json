@@ -14,9 +14,9 @@
       "browserSet": "paranoid"
     }
   },
-  "app": {
-    "styles": [
-      "@skyux/theme/css/sky.css"
-    ]
+  "host": {
+    "frameOptions": {
+      "none": true
+    }
   }
 }

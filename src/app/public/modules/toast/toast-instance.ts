@@ -13,6 +13,9 @@ export class SkyToastInstance {
     return this._closed;
   }
 
+  /**
+   * An observable that indicates when the toast is closed.
+   */
   private _closed = new EventEmitter<void>();
 
   /**

@@ -3,11 +3,6 @@ import {
 } from '@angular/core';
 
 import {
-  SkyDocsToolsModule,
-  SkyDocsToolsOptions
-} from '@skyux/docs-tools';
-
-import {
   SkyCodeModule
 } from '@blackbaud/skyux-lib-code-block';
 

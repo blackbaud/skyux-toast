@@ -27,14 +27,12 @@
     }
   },
   "host": {
+    "url": "https://developer.blackbaud.com",
     "frameOptions": {
       "none": true
-    },
-    "url": "https://developer.blackbaud.com"
+    }
   },
-  "omnibar": {
-    "experimental": true
-  },
+  "omnibar": {},
   "params": {
     "svcid": {
       "value": "skyux"

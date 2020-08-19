@@ -88,7 +88,7 @@ export class SkyToastService implements OnDestroy {
    * @param component Specifies an Angular component to inject into the toast body,
    * @param config Specifies additional configuration options for the toast.
    * @param providers Specifies an array of custom providers to pass to the custom component's
-   * constructor. Returns a `SkyToastInstance`.
+   * constructor.
    */
   public openComponent(
     component: any,

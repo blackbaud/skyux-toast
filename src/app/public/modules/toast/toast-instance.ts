@@ -9,13 +9,13 @@ import {
 // #endregion
 
 export class SkyToastInstance {
+  /**
+   * An observable that indicates when the toast is closed.
+   */
   public get closed(): Observable<void> {
     return this._closed;
   }
 
-  /**
-   * An observable that indicates when the toast is closed.
-   */
   private _closed = new EventEmitter<void>();
 
   /**

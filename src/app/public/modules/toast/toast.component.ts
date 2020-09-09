@@ -125,9 +125,9 @@ export class SkyToastComponent implements OnInit, OnDestroy {
 
   public baseIcon: SkyIconStackItem;
 
-  public topIcon: SkyIconStackItem;
-
   public icon: string;
+
+  public topIcon: SkyIconStackItem;
 
   private autoCloseTimeoutId: any;
 

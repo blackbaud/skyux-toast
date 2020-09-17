@@ -4,7 +4,6 @@ import {
 
 /**
  * Global configuration options for displaying toast components.
- * @internal
  */
 export class SkyToastContainerOptions {
 

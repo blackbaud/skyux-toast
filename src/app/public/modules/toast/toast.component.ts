@@ -1,4 +1,3 @@
-// #region imports
 import {
   AnimationEvent
 } from '@angular/animations';
@@ -12,7 +11,8 @@ import {
   OnDestroy,
   OnInit,
   Optional,
-  Output
+  Output,
+  ViewEncapsulation
 } from '@angular/core';
 
 import {
@@ -29,6 +29,10 @@ import {
 } from '@skyux/animations';
 
 import {
+  SkyIconStackItem
+} from '@skyux/indicators';
+
+import {
   SkyToastType
 } from './types/toast-type';
 
@@ -36,10 +40,11 @@ import {
   SkyToasterService
 } from './toaster.service';
 
-// #endregion
-
 const AUTO_CLOSE_MILLISECONDS = 6000;
 
+/**
+ * @internal
+ */
 @Component({
   selector: 'sky-toast',
   templateUrl: './toast.component.html',
@@ -47,9 +52,11 @@ const AUTO_CLOSE_MILLISECONDS = 6000;
   animations: [
     skyAnimationEmerge
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class SkyToastComponent implements OnInit, OnDestroy {
+
   /**
    * Indicates whether to automatically close the toast. Only close toasts
    * automatically if users can access the messages after the toasts close.
@@ -63,6 +70,7 @@ export class SkyToastComponent implements OnInit, OnDestroy {
   @Input()
   public set toastType(value: SkyToastType) {
     this._toastType = value;
+    this.updateIcon();
   }
 
   public get toastType(): SkyToastType {
@@ -116,6 +124,12 @@ export class SkyToastComponent implements OnInit, OnDestroy {
 
     return classNames.join(' ');
   }
+
+  public baseIcon: SkyIconStackItem;
+
+  public icon: string;
+
+  public topIcon: SkyIconStackItem;
 
   private autoCloseTimeoutId: any;
 
@@ -194,5 +208,43 @@ export class SkyToastComponent implements OnInit, OnDestroy {
     if (this.autoCloseTimeoutId) {
       clearTimeout(this.autoCloseTimeoutId);
     }
+  }
+
+  private updateIcon(): void {
+    let icon: string;
+    let baseIcon: string;
+    let topIcon: string;
+
+    // tslint:disable-next-line: switch-default
+    switch (this.toastType) {
+      case SkyToastType.Danger:
+      case SkyToastType.Warning:
+        icon = 'warning';
+        baseIcon = 'triangle-solid';
+        topIcon = 'exclamation';
+        break;
+      case SkyToastType.Info:
+        icon = 'exclamation-circle';
+        baseIcon = 'circle-solid';
+        topIcon = 'help-i';
+        break;
+      case SkyToastType.Success:
+        icon = 'check';
+        baseIcon = 'circle-solid';
+        topIcon = 'check';
+        break;
+    }
+
+    this.baseIcon = {
+      icon: baseIcon,
+      iconType: 'skyux'
+    };
+
+    this.topIcon = {
+      icon: topIcon,
+      iconType: 'skyux'
+    };
+
+    this.icon = icon;
   }
 }

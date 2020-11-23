@@ -14,7 +14,8 @@ import {
   StaticProvider,
   ViewChild,
   ViewChildren,
-  ViewContainerRef
+  ViewContainerRef,
+  ViewEncapsulation
 } from '@angular/core';
 
 import {
@@ -55,14 +56,19 @@ import {
   SkyToastDisplayDirection
 } from './types/toast-display-direction';
 
+/**
+ * @internal
+ */
 @Component({
   selector: 'sky-toaster',
   templateUrl: './toaster.component.html',
   styleUrls: ['./toaster.component.scss'],
   providers: [SkyToasterService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class SkyToasterComponent implements AfterViewInit, OnDestroy {
+
   public toastsForDisplay: SkyToast[];
 
   public get toastStream(): Observable<SkyToast[]> {

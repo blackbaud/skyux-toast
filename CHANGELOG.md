@@ -1,3 +1,11 @@
+# 4.1.1 (2020-10-07)
+
+- Fixed a bug where two close icons would display on the toast component. [#60](https://github.com/blackbaud/skyux-toast/pull/60)
+
+# 4.1.0 (2020-09-14)
+
+- Added modern theme styles to the toast component. [#57](https://github.com/blackbaud/skyux-toast/pull/57)
+
 # 4.0.1 (2020-08-07)
 
 - Added support for `@skyux/theme@4.8.0` and `@skyux-sdk/builder@4.3.0`. [#50](https://github.com/blackbaud/skyux-toast/pull/50)

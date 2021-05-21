@@ -8,10 +8,6 @@ import {
 } from '@angular/common';
 
 import {
-  BrowserAnimationsModule
-} from '@angular/platform-browser/animations';
-
-import {
   SkyAppWindowRef,
   SkyDynamicComponentModule
 } from '@skyux/core';
@@ -56,7 +52,6 @@ import {
     SkyToasterComponent
   ],
   imports: [
-    BrowserAnimationsModule,
     CommonModule,
     SkyDynamicComponentModule,
     SkyI18nModule,

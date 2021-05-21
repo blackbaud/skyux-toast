@@ -1,6 +1,6 @@
 {
   "name": "@skyux/toast",
-  "version": "4.1.2",
+  "version": "5.0.0-alpha.0",
   "description": "SKY UX Toast",
   "scripts": {
     "build": "skyux build-public-library",

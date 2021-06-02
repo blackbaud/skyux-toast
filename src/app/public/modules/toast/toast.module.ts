@@ -25,10 +25,6 @@ import {
 } from '../shared/toast-resources.module';
 
 import {
-  SkyToastAdapterService
-} from './toast-adapter.service';
-
-import {
   SkyToastBodyComponent
 } from './toast-body.component';
 
@@ -63,8 +59,7 @@ import {
   ],
   providers: [
     SkyAppWindowRef,
-    SkyToastService,
-    SkyToastAdapterService
+    SkyToastService
   ],
   entryComponents: [
     SkyToastBodyComponent,

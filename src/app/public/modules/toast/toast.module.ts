@@ -1,4 +1,3 @@
-// #region imports
 import {
   NgModule
 } from '@angular/core';
@@ -36,11 +35,6 @@ import {
   SkyToasterComponent
 } from './toaster.component';
 
-import {
-  SkyToastService
-} from './toast.service';
-// #endregion
-
 @NgModule({
   declarations: [
     SkyToastBodyComponent,
@@ -58,8 +52,7 @@ import {
     SkyToastComponent
   ],
   providers: [
-    SkyAppWindowRef,
-    SkyToastService
+    SkyAppWindowRef
   ],
   entryComponents: [
     SkyToastBodyComponent,

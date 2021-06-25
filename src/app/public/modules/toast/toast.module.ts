@@ -44,6 +44,11 @@ import {
   ],
   exports: [
     SkyToastComponent
+  ],
+  entryComponents: [
+    SkyToastBodyComponent,
+    SkyToastComponent,
+    SkyToasterComponent
   ]
 })
 export class SkyToastModule { }

@@ -1,4 +1,3 @@
-// #region imports
 import {
   NgModule
 } from '@angular/core';
@@ -10,6 +9,11 @@ import {
 import {
   NoopAnimationsModule
 } from '@angular/platform-browser/animations';
+
+import {
+  SkyAppWindowRef,
+  SkyDynamicComponentService
+} from '@skyux/core';
 
 import {
   SkyLibResourcesService
@@ -34,7 +38,6 @@ import {
 import {
   SkyToastWithToasterServiceTestComponent
 } from './toast-with-toaster-service.component.fixture';
-// #endregion
 
 @NgModule({
   declarations: [
@@ -56,6 +59,8 @@ import {
     SkyToastBodyTestComponent
   ],
   providers: [
+    SkyAppWindowRef,
+    SkyDynamicComponentService,
     SkyLibResourcesService
   ]
 })

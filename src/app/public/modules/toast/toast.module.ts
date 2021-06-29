@@ -1,4 +1,3 @@
-// #region imports
 import {
   NgModule
 } from '@angular/core';
@@ -6,11 +5,6 @@ import {
 import {
   CommonModule
 } from '@angular/common';
-
-import {
-  SkyAppWindowRef,
-  SkyDynamicComponentModule
-} from '@skyux/core';
 
 import {
   SkyI18nModule
@@ -25,10 +19,6 @@ import {
 } from '../shared/toast-resources.module';
 
 import {
-  SkyToastAdapterService
-} from './toast-adapter.service';
-
-import {
   SkyToastBodyComponent
 } from './toast-body.component';
 
@@ -40,11 +30,6 @@ import {
   SkyToasterComponent
 } from './toaster.component';
 
-import {
-  SkyToastService
-} from './toast.service';
-// #endregion
-
 @NgModule({
   declarations: [
     SkyToastBodyComponent,
@@ -53,18 +38,12 @@ import {
   ],
   imports: [
     CommonModule,
-    SkyDynamicComponentModule,
     SkyI18nModule,
     SkyIconModule,
     SkyToastResourcesModule
   ],
   exports: [
     SkyToastComponent
-  ],
-  providers: [
-    SkyAppWindowRef,
-    SkyToastService,
-    SkyToastAdapterService
   ],
   entryComponents: [
     SkyToastBodyComponent,

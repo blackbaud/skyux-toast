@@ -1,4 +1,3 @@
-// #region imports
 import {
   NgModule
 } from '@angular/core';
@@ -14,6 +13,10 @@ import {
 import {
   SkyLibResourcesService
 } from '@skyux/i18n';
+
+import {
+  SkyToastForRootCompatModule
+} from '../../shared/toast-for-root-compat-module';
 
 import {
   SkyToastModule
@@ -34,7 +37,6 @@ import {
 import {
   SkyToastWithToasterServiceTestComponent
 } from './toast-with-toaster-service.component.fixture';
-// #endregion
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import {
   ],
   imports: [
     CommonModule,
+    SkyToastForRootCompatModule,
     SkyToastModule,
     NoopAnimationsModule
   ],

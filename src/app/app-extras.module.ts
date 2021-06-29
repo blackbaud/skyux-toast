@@ -16,6 +16,10 @@ import {
 } from '@skyux/router';
 
 import {
+  SkyToastForRootCompatModule
+} from './public/modules/shared/toast-for-root-compat-module';
+
+import {
   SkyToastModule
 } from './public/public_api';
 
@@ -24,6 +28,9 @@ import {
 } from './visual/toast/toast-demo.component';
 
 @NgModule({
+  imports: [
+    SkyToastForRootCompatModule
+  ],
   exports: [
     SkyAppLinkModule,
     SkyCodeModule,

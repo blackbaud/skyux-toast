@@ -1,3 +1,9 @@
+# 5.0.0-beta.0 (2021-06-29)
+
+- Initial beta release.
+- Added support for `5.0.0-beta.*` versions of SKY UX component libraries. [#68](https://github.com/blackbaud/skyux-toast/pull/68)
+- Fixed `SkyToastService` to work within lazy-loaded feature modules. [#68](https://github.com/blackbaud/skyux-toast/pull/68)
+
 # 5.0.0-alpha.0 (2021-05-21)
 
 - Removed `BrowserAnimationsModule` from the `imports` section of `SkyToastModule` to support lazy-loading. Consumers of `SkyToastModule` must now import `BrowserAnimationsModule` into their application's root module. [#67](https://github.com/blackbaud/skyux-toast/pull/67)

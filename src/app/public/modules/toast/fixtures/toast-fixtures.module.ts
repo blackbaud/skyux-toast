@@ -16,7 +16,7 @@ import {
 
 import {
   SkyToastForRootCompatModule
-} from '../../../../sky-toast-for-root-compat-module';
+} from '../../shared/sky-toast-for-root-compat-module';
 
 import {
   SkyToastModule

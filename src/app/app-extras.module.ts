@@ -16,12 +16,12 @@ import {
 } from '@skyux/router';
 
 import {
-  SkyToastModule
-} from './public/public_api';
+  SkyToastForRootCompatModule
+} from './public/modules/shared/sky-toast-for-root-compat-module';
 
 import {
-  SkyToastForRootCompatModule
-} from './sky-toast-for-root-compat-module';
+  SkyToastModule
+} from './public/public_api';
 
 import {
   ToastDemoComponent

@@ -20,10 +20,17 @@ import {
 } from './public/public_api';
 
 import {
+  SkyToastForRootCompatModule
+} from './sky-toast-for-root-compat-module';
+
+import {
   ToastDemoComponent
 } from './visual/toast/toast-demo.component';
 
 @NgModule({
+  imports: [
+    SkyToastForRootCompatModule
+  ],
   exports: [
     SkyAppLinkModule,
     SkyCodeModule,

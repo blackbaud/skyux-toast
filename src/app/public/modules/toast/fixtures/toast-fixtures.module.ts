@@ -20,6 +20,10 @@ import {
 } from '@skyux/i18n';
 
 import {
+  SkyToastForRootCompatModule
+} from '../../../../sky-toast-for-root-compat-module';
+
+import {
   SkyToastModule
 } from '../toast.module';
 
@@ -48,6 +52,7 @@ import {
   ],
   imports: [
     CommonModule,
+    SkyToastForRootCompatModule,
     SkyToastModule,
     NoopAnimationsModule
   ],
@@ -59,8 +64,6 @@ import {
     SkyToastBodyTestComponent
   ],
   providers: [
-    SkyAppWindowRef,
-    SkyDynamicComponentService,
     SkyLibResourcesService
   ]
 })

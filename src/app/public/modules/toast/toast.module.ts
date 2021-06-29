@@ -7,10 +7,6 @@ import {
 } from '@angular/common';
 
 import {
-  SkyDynamicComponentModule
-} from '@skyux/core';
-
-import {
   SkyI18nModule
 } from '@skyux/i18n';
 
@@ -42,7 +38,6 @@ import {
   ],
   imports: [
     CommonModule,
-    SkyDynamicComponentModule,
     SkyI18nModule,
     SkyIconModule,
     SkyToastResourcesModule

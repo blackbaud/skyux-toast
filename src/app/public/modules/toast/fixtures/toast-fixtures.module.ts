@@ -11,11 +11,6 @@ import {
 } from '@angular/platform-browser/animations';
 
 import {
-  SkyAppWindowRef,
-  SkyDynamicComponentService
-} from '@skyux/core';
-
-import {
   SkyLibResourcesService
 } from '@skyux/i18n';
 

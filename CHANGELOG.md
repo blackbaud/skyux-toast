@@ -1,3 +1,7 @@
+# 5.0.0-beta.1 (2021-08-30)
+
+- Migrated to Angular CLI. [#70](https://github.com/blackbaud/skyux-toast/pull/70)
+
 # 5.0.0-beta.0 (2021-06-29)
 
 - Initial beta release.
@@ -7,6 +11,7 @@
 # 5.0.0-alpha.0 (2021-05-21)
 
 - Removed `BrowserAnimationsModule` from the `imports` section of `SkyToastModule` to support lazy-loading. Consumers of `SkyToastModule` must now import `BrowserAnimationsModule` into their application's root module. [#67](https://github.com/blackbaud/skyux-toast/pull/67)
+
 # 4.1.2 (2020-11-23)
 
 - Updated the tooltip for the button to close toasts. [#64](https://github.com/blackbaud/skyux-toast/pull/64)

@@ -6,7 +6,7 @@ import { VisualComponent } from './visual/visual.component';
 
 const routes: Routes = [
   {
-    path: 'visual',
+    path: '',
     component: VisualComponent
   },
   {

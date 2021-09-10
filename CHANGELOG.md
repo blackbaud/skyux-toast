@@ -1,3 +1,7 @@
+# 5.0.0-beta.2 (2021-09-10)
+
+- Enabled Ivy's "partial" compilation mode. [#73](https://github.com/blackbaud/skyux-toast/pull/73)
+
 # 5.0.0-beta.1 (2021-08-30)
 
 - Migrated to Angular CLI. [#70](https://github.com/blackbaud/skyux-toast/pull/70)

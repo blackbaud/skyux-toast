@@ -7,10 +7,10 @@
     "@angular/core": "^12.2.0",
     "@angular/platform-browser": "^12.2.0",
     "@angular/router": "^12.2.0",
-    "@skyux/core": "^5.0.0-beta.0",
-    "@skyux/i18n": "^5.0.0-beta.0",
-    "@skyux/animations": "^5.0.0-beta.0",
-    "@skyux/indicators": "^5.0.0-beta.0"
+    "@skyux/core": "^5.0.0-beta.10",
+    "@skyux/i18n": "^5.0.0-beta.7",
+    "@skyux/animations": "^5.0.0-beta.2",
+    "@skyux/indicators": "^5.0.0-beta.4"
   },
   "dependencies": {
     "tslib": "^2.3.0"

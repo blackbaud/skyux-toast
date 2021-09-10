@@ -10,11 +10,6 @@ import {
 } from 'projects/toast/src/public-api';
 
 import {
-  SkyThemeService,
-  SkyThemeSettings
-} from '@skyux/theme';
-
-import {
   ToastDemoComponent
 } from './toast-demo.component';
 
@@ -25,8 +20,7 @@ import {
 })
 export class ToastVisualComponent implements OnDestroy {
   constructor(
-    private toastService: SkyToastService,
-    private themeSvc: SkyThemeService
+    private toastService: SkyToastService
   ) { }
 
   public ngOnDestroy(): void {
@@ -49,9 +43,5 @@ export class ToastVisualComponent implements OnDestroy {
 
   public closeAll(): void {
     this.toastService.closeAll();
-  }
-
-  public themeSettingsChange(themeSettings: SkyThemeSettings): void {
-    this.themeSvc.setTheme(themeSettings);
   }
 }

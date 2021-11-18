@@ -9,15 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    NoopAnimationsModule,
-    AppRoutingModule,
-    VisualModule
-  ],
+  declarations: [AppComponent],
+  imports: [NoopAnimationsModule, AppRoutingModule, VisualModule],
   providers: [SkyThemeService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

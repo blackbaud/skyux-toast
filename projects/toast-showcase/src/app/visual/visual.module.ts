@@ -15,7 +15,7 @@ import { VisualComponent } from './visual.component';
     CommonModule,
     RouterModule,
     SkyE2eThemeSelectorModule,
-    SkyToastModule
-  ]
+    SkyToastModule,
+  ],
 })
-export class VisualModule { }
+export class VisualModule {}

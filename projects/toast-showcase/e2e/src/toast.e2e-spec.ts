@@ -1,13 +1,6 @@
-import {
-  expect,
-  SkyHostBrowser,
-  SkyVisualThemeSelector
-} from '@skyux-sdk/e2e';
+import { expect, SkyHostBrowser, SkyVisualThemeSelector } from '@skyux-sdk/e2e';
 
-import {
-  element,
-  by
-} from 'protractor';
+import { element, by } from 'protractor';
 
 describe('Toast', () => {
   let currentTheme: string;
@@ -39,7 +32,7 @@ describe('Toast', () => {
       await element(by.css('.sky-btn-primary')).click();
 
       expect('.sky-toaster').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('toast-lg')
+        screenshotName: getScreenshotName('toast-lg'),
       });
     });
 
@@ -49,7 +42,7 @@ describe('Toast', () => {
       await element(by.css('.sky-btn-secondary')).click();
 
       expect('.sky-toaster').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('toast-lg-component')
+        screenshotName: getScreenshotName('toast-lg-component'),
       });
     });
 
@@ -59,7 +52,7 @@ describe('Toast', () => {
       await element(by.css('.sky-btn-primary')).click();
 
       expect('.sky-toaster').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('toast-xs')
+        screenshotName: getScreenshotName('toast-xs'),
       });
     });
 
@@ -69,7 +62,7 @@ describe('Toast', () => {
       await element(by.css('.sky-btn-secondary')).click();
 
       expect('.sky-toaster').toMatchBaselineScreenshot(done, {
-        screenshotName: getScreenshotName('toast-xs-component')
+        screenshotName: getScreenshotName('toast-xs-component'),
       });
     });
   }
@@ -98,5 +91,4 @@ describe('Toast', () => {
 
     runTests();
   });
-
 });

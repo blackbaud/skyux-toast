@@ -10,7 +10,7 @@
       "prefix": "sky",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@skyux-sdk/angular-builders:ng-packagr",
           "options": {
             "project": "projects/toast/ng-package.json"
           },
@@ -168,9 +168,7 @@
               "projects/toast-showcase/src/favicon.ico",
               "projects/toast-showcase/src/assets"
             ],
-            "styles": [
-              "projects/toast-showcase/src/styles.scss"
-            ],
+            "styles": ["projects/toast-showcase/src/styles.scss"],
             "scripts": []
           }
         },

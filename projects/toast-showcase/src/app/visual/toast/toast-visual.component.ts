@@ -1,27 +1,16 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  OnDestroy
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 
-import {
-  SkyToastService,
-  SkyToastType
-} from 'projects/toast/src/public-api';
+import { SkyToastService, SkyToastType } from 'projects/toast/src/public-api';
 
-import {
-  ToastDemoComponent
-} from './toast-demo.component';
+import { ToastDemoComponent } from './toast-demo.component';
 
 @Component({
   selector: 'app-toast-visual',
   templateUrl: './toast-visual.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastVisualComponent implements OnDestroy {
-  constructor(
-    private toastService: SkyToastService
-  ) { }
+  constructor(private toastService: SkyToastService) {}
 
   public ngOnDestroy(): void {
     this.toastService.closeAll();
@@ -29,16 +18,30 @@ export class ToastVisualComponent implements OnDestroy {
 
   public openToasts(): void {
     this.toastService.openMessage('Toast message', { type: SkyToastType.Info });
-    this.toastService.openMessage('Toast message', { type: SkyToastType.Success });
-    this.toastService.openMessage('Toast message', { type: SkyToastType.Warning });
-    this.toastService.openMessage('Toast message', { type: SkyToastType.Danger });
+    this.toastService.openMessage('Toast message', {
+      type: SkyToastType.Success,
+    });
+    this.toastService.openMessage('Toast message', {
+      type: SkyToastType.Warning,
+    });
+    this.toastService.openMessage('Toast message', {
+      type: SkyToastType.Danger,
+    });
   }
 
   public openComponents(): void {
-    this.toastService.openComponent(ToastDemoComponent, { type: SkyToastType.Info });
-    this.toastService.openComponent(ToastDemoComponent, { type: SkyToastType.Success });
-    this.toastService.openComponent(ToastDemoComponent, { type: SkyToastType.Warning });
-    this.toastService.openComponent(ToastDemoComponent, { type: SkyToastType.Danger });
+    this.toastService.openComponent(ToastDemoComponent, {
+      type: SkyToastType.Info,
+    });
+    this.toastService.openComponent(ToastDemoComponent, {
+      type: SkyToastType.Success,
+    });
+    this.toastService.openComponent(ToastDemoComponent, {
+      type: SkyToastType.Warning,
+    });
+    this.toastService.openComponent(ToastDemoComponent, {
+      type: SkyToastType.Danger,
+    });
   }
 
   public closeAll(): void {

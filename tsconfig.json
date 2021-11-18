@@ -12,18 +12,10 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "paths": {
-      "@skyux/toast": [
-        "projects/toast/src/public-api.ts"
-      ],
-      "toast": [
-        "dist/toast/toast",
-        "dist/toast"
-      ]
+      "@skyux/toast": ["projects/toast/src/public-api.ts"],
+      "toast": ["dist/toast/toast", "dist/toast"]
     }
   },
   "angularCompilerOptions": {

@@ -1,6 +1,6 @@
 # 5.0.1 (2021-11-18)
 
-- Added support for prettier code formatting and updated the builder to support StackBlitz. [#77](https://github.com/blackbaud/skyux-toast/pull/77)
+- Added support for Prettier code formatting and updated the builder to support StackBlitz. [#77](https://github.com/blackbaud/skyux-toast/pull/77)
 
 # 5.0.0 (2021-10-01)
 
